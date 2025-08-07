@@ -1,0 +1,19 @@
+SetEnv USERNAME "smccoyauthor"
+SetEnv PASSWORD "53V0EHIKggs38MvPkscyH1FlImOhm9Kp"
+SetEnv DBNAME "quotesdb_0tnb"
+SetEnv HOST "dpg-cg507k82qv287crosjk0-a.ohio-postgres.render.com"
+SetEnv PORT "5432"
+
+Options -Indexes
+DirectoryIndex index.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [NC,L]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [NC,L]
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://localhost.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://localhost$      [NC]
